@@ -34,14 +34,17 @@ class BookControllerTest {
         repository.deleteAll();
     }
 
+ */
+
+
 
 
     @Test
     void getAllBooks(){
 
         //given
-        Book book1 = new Book("123","test-book-1");
-        Book book2 = new Book("123","test-book-1");;
+        Book book1 = new Book("123","test-book-1", "author1");
+        Book book2 = new Book("223","test-book-2", "author2");;
         repository.add(book1);
         repository.add(book2);
 
@@ -58,8 +61,8 @@ class BookControllerTest {
         //then
 
         List<Book> expected = List.of(
-                new Book("123","test-book-1"),
-                new Book("123","test-book-1")
+                new Book("123","test-book-1", "author1"),
+                new Book("223","test-book-2", "author2")
         );
         assertEquals(expected, actual);
 
@@ -69,7 +72,7 @@ class BookControllerTest {
     @Test
     void addBook(){
         //GIVEN
-        Book book = new Book("123", "test-book");
+        Book book = new Book("123", "test-book", "author");
 
         //WHEN
 
@@ -83,12 +86,10 @@ class BookControllerTest {
                 .getResponseBody();
 
         //THEN
-        Book expected = new Book("123", "test-book");
+        Book expected = new Book("123", "test-book", "author");
         assertEquals(expected, actual);
 
     }
-
- */
 
 
 }

@@ -1,6 +1,7 @@
 package de.neuefische.booklibraryspring.api;
 
 import de.neuefische.booklibraryspring.model.Book;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,14 @@ public class IsbnApi {
 
     private final WebClient webClient;
 
+
+    @Autowired
     public IsbnApi(WebClient webClient) {
         this.webClient = webClient;
     }
 
 
-    //ich bin ein Kommentar.
+
 
     public Optional<Book> getBookByIsbn(String isbn) {
         return Optional.ofNullable(
